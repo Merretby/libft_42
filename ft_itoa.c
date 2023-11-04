@@ -6,13 +6,13 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 01:25:53 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/03 23:24:57 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/11/04 23:49:33 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	d_count(int n)
+static int	d_count(int n)
 {
 	int	x;
 
@@ -34,38 +34,43 @@ int	d_count(int n)
 	return (x);
 }
 
+static	char	*min(char *res, int *n)
+{
+		res[0] = '-';
+		res[1] = '2';
+		*n = 147483648;
+}
+
 char	*ft_itoa(int n)
 {
 	char	*res;
 	int		count;
 
 	count = d_count(n);
-	if (!(res = malloc(sizeof(char) * (count + 1))))
+	res = malloc(sizeof(char) * (count + 1));
+	if (!res)
 		return (NULL);
 	res[count] = '\0';
 	if (n == -2147483648)
-	{
-		res[0] = '-';
-		res[1] = 2;
-		n = 147483648;
-		count = count - 1;
-	}
-	if (n < 0)
+		min(res, &n);
+	else if (n < 0)
 	{
 		res[0] = '-';
 		n = -n;
 	}
-	while (--count >= 0)
+	else if (n == 0)
+		res[0] = '0';
+	while (n)
 	{
-		res[count] = n % 10 + '0';
+		res[--count] = n % 10 + '0';
 		n = n / 10;
 	}
 	return (res);
 }
 
-// int	main(void)
-// {
-// 	char*  x = ft_itoa(1000);
-// 	printf("%s\n", x);
-// 	return 0;
-// }
+/*int	main(void)
+{
+	char*  x = ft_itoa(2147483647);
+	printf("%s\n", x);
+ 	return 0;
+}*/

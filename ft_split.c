@@ -12,7 +12,36 @@
 
 #include "libft.h"
 
-int	count_words(char const *str, char c)
+
+static char *small_alloc(char const *str, int *index, char separator)
+{
+	char *ptr;
+	int len;
+	int	pos;
+	int k;
+
+	len = 0;
+	k = 0;
+	while (str[*index] == separator && str[*index])
+		(*index)++;
+	pos = *index;
+	while (str[*index] != separator && str[*index])
+		(*index)++;
+	ptr = malloc(sizeof(char) * (*index - pos + 1));
+	if (!ptr)
+		return (NULL);
+	len = *index - pos;
+	while (k < len)
+	{
+		ptr[k] = str[pos];
+		k++;
+		pos++;
+	}
+	ptr[k] = '\0';
+	return (ptr);
+}
+
+static int	count_words(char const *str, char c)
 {
 	size_t	wo;
 	size_t	i;
@@ -35,40 +64,31 @@ char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
 	int		i;
-	int		len;
+	int		count;
 	int		j;
-	int		k;
 
+	j = 0;
 	if (s == NULL)
 		return (NULL);
-	j = 0;
 	i = 0;
-	ptr = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	count = count_words(s, c);
+	ptr = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!ptr)
 		return (NULL);
-	while (s[i] != '\0')
+	ptr[count] = NULL;
+	while (j < count)
 	{
-		while (s[i] == c)
-			i++;
-		len = i;
-		while (s[i] != c && s[i])
-			i++;
-		if (i > len)
-		{
-			ptr[j] = malloc(sizeof(char) * (i - len + 1));
-			if (!ptr[j])
-				return (NULL);
-			k = 0;
-			while (k < i - len)
-			{
-				ptr[j][k] = s[len + k];
-				k++;
-			}
-			ptr[j][k] = '\0';
-			j++;
-		}
+		ptr[j] = small_alloc(s, &i, c);
+		j++;
 	}
-	ptr[j] = 0;
 	return (ptr);
-	free (ptr);
 }
+
+/*int main()
+{
+	char str[] = "...hello..fow..";
+	char c = '.';
+	char **strs = ft_split(str, c);
+
+	printf("%s", strs[2]);
+}*/

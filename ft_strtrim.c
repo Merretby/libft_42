@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	check_doubles(char c, char const *set)
+static int	check_doubles(char c, char const *set)
 {
 	int	i;
 
