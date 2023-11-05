@@ -34,11 +34,12 @@ static int	d_count(int n)
 	return (x);
 }
 
-static	char	*min(char *res, int *n)
+static	void	*min(char *res, int *n)
 {
-		res[0] = '-';
-		res[1] = '2';
-		*n = 147483648;
+	res[0] = '-';
+	res[1] = '2';
+	*n = 147483648;
+	return (0);
 }
 
 char	*ft_itoa(int n)
