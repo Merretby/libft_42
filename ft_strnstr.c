@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 	size_t	i;
 	size_t	j;
 
-	if (n == 0)
+	if (n == 0 && str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;

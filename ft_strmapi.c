@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 21:26:29 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/05 00:08:25 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/11/08 00:09:44 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 	int		len;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	ptr = malloc(sizeof(char) * (len + 1));

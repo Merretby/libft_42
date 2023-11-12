@@ -12,13 +12,23 @@
 
 #include "libft.h"
 
-
-static char *small_alloc(char const *str, int *index, char separator)
+static void	**free_aloc(char **fr)
 {
-	char *ptr;
-	int len;
-	int	pos;
-	int k;
+	size_t	i;
+
+	i = 0;
+	while (fr[i])
+		free(fr[i++]);
+	free (fr);
+	return (0);
+}
+
+static char	*small_alloc(char const *str, int *index, char separator)
+{
+	char	*ptr;
+	int		len;
+	int		pos;
+	int		k;
 
 	len = 0;
 	k = 0;
@@ -29,7 +39,7 @@ static char *small_alloc(char const *str, int *index, char separator)
 		(*index)++;
 	ptr = malloc(sizeof(char) * (*index - pos + 1));
 	if (!ptr)
-		return (NULL);
+		return (*free_aloc(&ptr));
 	len = *index - pos;
 	while (k < len)
 	{

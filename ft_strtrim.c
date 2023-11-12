@@ -35,6 +35,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
+	if (!*s1)
+		return (ft_strdup(""));
 	i = 0;
 	f = 0;
 	e = ft_strlen(s1) - 1;
@@ -46,11 +48,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!ptr)
 		return (NULL);
 	while (e >= f)
-	{
-		ptr[i] = s1[f];
-		i++;
-		f++;
-	}
+		ptr[i++] = s1[f++];
 	ptr[i] = '\0';
 	return (ptr);
 }
