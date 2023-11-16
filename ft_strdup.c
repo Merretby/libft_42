@@ -21,18 +21,10 @@ char	*ft_strdup(const char *str)
 	ptr = malloc(sizeof(char) * ft_strlen(str) + 1);
 	if (!ptr)
 		return (NULL);
-	if (str[i] == '\0')
+	while (str[i])
 	{
-		ptr[i] = '\0';
-		return (ptr);
-	}
-	else
-	{
-		while (str[i])
-		{
-			ptr[i] = str[i];
-			i++;
-		}
+		ptr[i] = str[i];
+		i++;
 	}
 	ptr[i] = '\0';
 	return (ptr);
