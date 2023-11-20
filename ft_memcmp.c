@@ -29,14 +29,3 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 	}
 	return (0);
 }
-
-/*int main()
-{
-    char str1[] = "abdef";
-    char str2[] = "abceeF";
-    int ret;
-
-    ret = ft_memcmp(str1, str2, 5);
-    printf("%d", ret);
-    return (0);
-}*/

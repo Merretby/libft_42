@@ -93,12 +93,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (ptr);
 }
-
-/*int main()
-{
-	char str[] = "...hello..fow..";
-	char c = '.';
-	char **strs = ft_split(str, c);
-
-	printf("%s", strs[2]);
-}*/

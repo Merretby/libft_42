@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 01:25:53 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/04 23:49:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/11/18 01:19:15 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,3 @@ char	*ft_itoa(int n)
 	}
 	return (res);
 }
-
-/*int	main(void)
-{
-	char*  x = ft_itoa(2147483647);
-	printf("%s\n", x);
- 	return 0;
-}*/

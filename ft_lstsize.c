@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 21:26:29 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/18 18:41:50 by moer-ret         ###   ########.fr       */
+/*   Created: 2023/11/14 00:20:54 by moer-ret          #+#    #+#             */
+/*   Updated: 2023/11/19 10:52:27 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_lstsize(t_list *lst)
 {
-	char	*ptr;
-	int		i;
-	int		len;
+	int	i;
 
-	if (s == NULL || f == NULL)
-		return (NULL);
 	i = 0;
-	len = ft_strlen(s);
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (!ptr)
-		return (NULL);
-	while (s[i])
+	while (lst != NULL)
 	{
-		ptr[i] = f(i, s[i]);
+		lst = lst->next;
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (i);
 }
+/*int main()
+{
+	char i[] = "hello";
+	char j[] = "how";
+	char k[] = "3003";
+	char l[] = "hi";
+	
+	t_list *head = ft_lstnew(i);
+	t_list *node1 = ft_lstnew(j);
+	t_list *node2 = ft_lstnew(k);
+	t_list *node3= ft_lstnew(l);
+	head->next = node1;
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = NULL;
+	printf("%d", ft_lstsize(head));
+}*/

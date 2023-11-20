@@ -14,13 +14,13 @@
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*s;
-	char	ch;
+	size_t			i;
+	unsigned char	*s;
+	unsigned char	ch;
 
 	i = 0;
-	s = (char *)str;
-	ch = (char)c;
+	s = (unsigned char *)str;
+	ch = (unsigned char)c;
 	while (i < n)
 	{
 		if (s[i] == ch)
@@ -29,11 +29,3 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (NULL);
 }
-/*int main(void)
-{
-    char str[] = "Hello World!";
-    char *p;
-    p = ft_memchr(str, 'o', 12);
-    printf("%s\n", p);
-    return (0);
-}*/
