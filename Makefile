@@ -24,9 +24,9 @@ $(NAME): $(OFILSE)
 
 bonus: $(OBONUS)
 
-.c.o:
-	$(CC) $(CFLAGS) -c $<
-	ar rc $(NAME) $@
+.c.o:// Suffix rules
+	$(CC) $(CFLAGS) -c $<// the name of first prerequisite (c)
+	ar rc $(NAME) $@// the name of archive file
 
 clean:
 	rm -f $(OFILSE) $(OBONUS)
@@ -35,5 +35,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

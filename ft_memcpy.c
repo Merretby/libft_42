@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:36:10 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/10/30 20:36:10 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/11/20 04:36:22 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	s = (unsigned char *)src;
 	d = (unsigned char *)dest;
-	if (dest == NULL && src == NULL)
-		return (NULL);
+	if (src == dest)
+		return (dest);
 	while (i < n)
 	{
 		d[i] = s[i];

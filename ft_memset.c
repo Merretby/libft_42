@@ -28,16 +28,3 @@ void	*ft_memset(void *b, int c, size_t n)
 	}
 	return (ptr);
 }
-
-/*int main()
-{
-	int a[] = {1, 2, 3, 4};
-	int i = 0;
-	while (i < 4)
-	{
-		ft_memset(&a[i], 0, sizeof(int));
-		ft_memset(&a[i], 7, sizeof(char));
-		printf("%d ", a[i]);
-		i++;
-	}
-}*/

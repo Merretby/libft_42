@@ -18,7 +18,10 @@ static void	**free_aloc(char **fr)
 
 	i = 0;
 	while (fr[i])
-		free(fr[i++]);
+	{
+		free(fr[i]);
+		i++;
+	}
 	free (fr);
 	return (0);
 }
@@ -31,16 +34,16 @@ static char	*small_alloc(char const *str, int *index, char separator)
 	int		k;
 
 	len = 0;
-	k = 0;
 	while (str[*index] == separator && str[*index])
 		(*index)++;
 	pos = *index;
 	while (str[*index] != separator && str[*index])
 		(*index)++;
-	ptr = malloc(sizeof(char) * (*index - pos + 1));
+	len = *index - pos;
+	ptr = malloc(sizeof(char) * (len + 1));
 	if (!ptr)
 		return (*free_aloc(&ptr));
-	len = *index - pos;
+	k = 0;
 	while (k < len)
 	{
 		ptr[k] = str[pos];
@@ -80,12 +83,12 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	if (s == NULL)
 		return (NULL);
-	i = 0;
 	count = count_words(s, c);
 	ptr = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!ptr)
 		return (NULL);
 	ptr[count] = NULL;
+	i = 0;
 	while (j < count)
 	{
 		ptr[j] = small_alloc(s, &i, c);

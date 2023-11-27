@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 15:05:19 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/20 17:01:08 by moer-ret         ###   ########.fr       */
+/*   Created: 2023/11/14 01:53:23 by moer-ret          #+#    #+#             */
+/*   Updated: 2023/11/25 15:51:39 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (s != NULL)
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		lst = lst->next;
 	}
+	return (lst);
 }

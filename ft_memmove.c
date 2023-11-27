@@ -21,8 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	d = (unsigned char *)dest;
 	s = (unsigned char *)src;
 	i = 0;
-	if (dest == NULL && src == NULL)
-		return (NULL);
+	if (dest == src)
+		return (dest);
 	if (src < dest)
 	{
 		while (n > 0)
@@ -35,14 +35,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(dest, src, n);
 	return (dest);
 }
-
-/*int main()
-{
- char src[] = "Hell";
- char dest[] = "1234567890";
- char *p;
-
-	p = ft_memmove(dest, src, 5);
-	printf("%s\n", p);
-	return (0);
-}*/
